@@ -19,7 +19,7 @@ const NavBar = () => {
   };
   return (
     <>
-      <div className="fixed bottom-0 left-0 w-full bg-white text-black p-2 flex justify-between gap-x-2 text-sm">
+      <div className="fixed bottom-0 left-0 w-full bg-white text-black p-2 flex justify-between gap-x-2 text-xs">
         <Link to="/">
           <button className="flex-1 text-center py-2 hover:text-lime-500">
             <img src={HomeIcon} alt="Home" className="h-5 w-5 mx-auto" />
@@ -38,7 +38,7 @@ const NavBar = () => {
         </Link>
         <button
           onClick={openNav}
-          className="flex-1 text-center py-2 hover:bg-lime-600 bg-lime-500 rounded-full text-white"
+          className="flex-1 text-center py-2 hover:bg-[#39A35D] bg-[#3EB265] rounded-full text-white"
         >
           <img src={IDCardIcon} alt="IDCard" className="h-5 w-5 mx-auto" />
           NisitCard
