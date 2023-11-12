@@ -4,7 +4,7 @@ import NotificationIcon from "../../assets/home_icon_notification.svg";
 import QRCodeIcon from "../../assets/home_icon_qrcode.svg";
 import TicketIcon from "../../assets/home_icon_ticket.svg";
 import BotIcon from "../../assets/home_icon_bot.svg";
-
+const makeButton = () => {};
 const TopComponent = () => {
   return (
     <div className="relative">
@@ -76,8 +76,8 @@ const TopComponent = () => {
                     Ticket
                   </button>
                 </div>
-                <div className="flex-none flex items-center justify-end">
-                  <button className="flex px-2 py-1 ">
+                <div className="flex-none flex items-center justify-end right-2">
+                  <button className="flex px-2 py-1">
                     <img src={BotIcon} alt="Bot" className="h-5 w-5" />
                   </button>
                 </div>
