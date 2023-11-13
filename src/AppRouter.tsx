@@ -13,8 +13,8 @@ function AppRoute() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="academic" element={<Academic />} />
-          <Route path="kuservices" element={<KUServices />} />
-          <Route path="myprofiles" element={<MyProfile />} />
+          <Route path="kuservices_" element={<KUServices />} />
+          <Route path="myprofile" element={<MyProfile />} />
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>
