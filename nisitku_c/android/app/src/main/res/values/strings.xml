@@ -1,7 +1,0 @@
-<?xml version='1.0' encoding='utf-8'?>
-<resources>
-    <string name="app_name">nisiuku</string>
-    <string name="title_activity_main">nisiuku</string>
-    <string name="package_name">com.sirisuk.nisitku</string>
-    <string name="custom_url_scheme">com.sirisuk.nisitku</string>
-</resources>

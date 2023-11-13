@@ -1,8 +1,0 @@
-{
-  "appId": "com.sirisuk.nisitku",
-  "appName": "nisiuku",
-  "webDir": "dist",
-  "server": {
-    "androidScheme": "https"
-  }
-}
