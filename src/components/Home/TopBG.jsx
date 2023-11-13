@@ -23,7 +23,7 @@ const TopComponent = () => {
             className="flex w-full h-full"
           >
             {/* PROFILE IMG */}
-            <div className="flex flex-none w-[39%] h-[200%]">
+            <div className="flex flex-none w-[37%] h-[200%]">
               <ProfileIMG />
             </div>
             {/* SUPER BUTTTON */}
@@ -47,7 +47,7 @@ const TopIMG = () => {
 
 const ProfileIMG = () => {
   return (
-    <div className="relative left-[20%] w-28 h-28 rounded-full overflow-hidden border-4 border-green-500">
+    <div className="relative left-[15%] w-28 h-28 rounded-full overflow-hidden border-4 border-green-500">
       <div className="w-full h-full rounded-full overflow-hidden border-2 border-white relative ">
         <img
           src={HomeIMG}

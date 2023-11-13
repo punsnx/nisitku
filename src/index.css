@@ -3,7 +3,7 @@
 @tailwind utilities;
 .app {
   margin: 0 auto;
-  min-width: 364px;
+  min-width: 368px;
   max-width: 480px; /* Typical width of a mobile device */
 }
 
