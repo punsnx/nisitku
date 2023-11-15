@@ -9,7 +9,7 @@ import KU80Logo from "../../assets/KU80_LOGO.png";
 
 const TopComponent = () => {
   return (
-    <div className="relative">
+    <div className="relative mb-5">
       {/* IMG */}
       <TopIMG />
       {/* WHITE OVERLAY Container */}
@@ -62,7 +62,7 @@ const ProfileIMG = () => {
 
 const SuperBT_L1 = () => {
   return (
-    <div className="flex w-full h-[50%] ">
+    <div className="flex w-full h-[50%]">
       <div className="grow flex items-center justify-between ">
         <button className="flex w-[49%] px-2 py-1 items-center justify-between space-x-1 opacity-75 rounded-full bg-[#B7EEBC] ">
           <img
