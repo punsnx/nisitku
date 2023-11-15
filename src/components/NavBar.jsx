@@ -22,7 +22,7 @@ const NavBar = () => {
   };
   return (
     <>
-      <div className="fixed bottom-0 left-0 right-0 w-full  bg-slate-200  text-xs flex justify-center rounded-tl-3xl rounded-tr-3xl">
+      <div className="fixed bottom-0 left-0 right-0 w-full  bg-white  text-xs flex justify-center rounded-tl-3xl rounded-tr-3xl shadow-top-md">
         <div className="mx-4 w-full flex justify-between">
           <button
             className=" py-4 text-center hover:text-lime-500"
