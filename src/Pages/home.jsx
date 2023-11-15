@@ -1,5 +1,6 @@
 import TopBG from "../components/Home/TopBG";
 const home = () => {
+  console.log("Home");
   return (
     <>
       <div className="flex-row">

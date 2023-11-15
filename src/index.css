@@ -1,12 +1,31 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 .app {
+  touch-action: pan-y;
   margin: 0 auto;
   min-width: 368px;
   max-width: 480px; /* Typical width of a mobile device */
+  -webkit-user-drag: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+}
+.nav {
+  touch-action: none;
+  -webkit-user-drag: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
 }
 
+img {
+  pointer-events: none;
+  cursor: auto;
+}
 @media screen and (min-width: 481px) {
   body {
     background-color: #ffffff;

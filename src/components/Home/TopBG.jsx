@@ -5,6 +5,7 @@ import QRCodeIcon from "../../assets/home_icon_qrcode.svg";
 import TicketIcon from "../../assets/home_icon_ticket.svg";
 import BotIcon from "../../assets/home_icon_bot.svg";
 import HomeIMG from "../../assets/home_img.svg";
+import KU80Logo from "../../assets/KU80_LOGO.png";
 
 const TopComponent = () => {
   return (
