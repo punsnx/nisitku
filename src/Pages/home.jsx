@@ -4,6 +4,7 @@ import EventsSection from "../components/Home/Events";
 import HighlightSection from "../components/Home/Highlight";
 import FavroiteSection from "../components/Home/Favorite";
 import StatusSection from "../components/Home/Status";
+
 const home = () => {
   console.log("Home");
   return (

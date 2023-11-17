@@ -1,4 +1,31 @@
+import { useEffect, useState } from "react";
+import { getNews } from "../../api/news";
+
 const MainNews = () => {
+  const [news, setNews] = useState([]);
+  useEffect(
+    () => {
+      // const fetchData = async () => {
+      //   const result = await getNews(5);
+      //   console.log(result);
+      //   setNews(result);
+      // };
+
+      // fetchData();
+
+      // Code to run after the component renders
+      // This function will run on component mount and whenever there is a change in dependencies.
+
+      // Clean-up function (optional)
+      return () => {
+        // Code to run before the component unmounts
+        // It's useful for cleaning up subscriptions or any resource allocation.
+      };
+    },
+    [
+      /* dependency array */
+    ]
+  );
   const items = Array.from({ length: 5 }, (_, index) => `Item ${index + 1}`);
   return (
     <>
@@ -38,6 +65,20 @@ const MainNews = () => {
           ))}
         </ul>
       </div>
+      {/* <ul>
+        {news ? (
+          news.map((item, index) => (
+            <li
+              key={index}
+              className="p-12 bg-white rounded-3xl border border-black"
+            >
+              <img src={item.images[0]} alt="" />
+            </li>
+          ))
+        ) : (
+          <></>
+        )}
+      </ul> */}
     </>
   );
 };
