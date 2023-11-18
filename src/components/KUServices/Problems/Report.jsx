@@ -42,13 +42,13 @@ function ProblemsPage() {
   const [relatedGroupOptions, setRelatedGroupOptions] = useState([]);
 
   return (
-    <div className="flex items-center justify-center bg-gray-100">
+    <div className="flex items-center justify-center ">
       <form
         id="postDataForm"
         action="https://apt-terrapin-willing.ngrok-free.app/send-message"
         method="POST"
         encType="multipart/form-data"
-        className="bg-white w-full max-w-md p-6 rounded-md "
+        className="bg-white w-full max-w-md p-6 rounded-md mt-20"
       >
         <h2 className="text-2xl font-semibold mb-6 text-center">
           หน้าเว็บส่งปัญหา

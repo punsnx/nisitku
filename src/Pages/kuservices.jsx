@@ -16,7 +16,7 @@ const KUServices = () => {
     <>
       <div className="absolute w-full h-full z-0">
         <div className="flex">
-          <label className="text-4xl font-bold mt-10 ml-5">KUServices</label>
+          <label className="text-4xl font-bold mt-20 ml-5">KUServices</label>
         </div>
         <div className="flex">
           <label className="text-xl font-semibold mt-10 ml-5">
@@ -45,7 +45,7 @@ const KUServices = () => {
           } transform-gpu`}
         >
           <div className="w-full h-full">
-            <button className="absolute left-4 top-4" onClick={closeService}>
+            <button className="absolute left-4 top-16" onClick={closeService}>
               Back
             </button>
             {show}

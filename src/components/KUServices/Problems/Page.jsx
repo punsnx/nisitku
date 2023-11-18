@@ -30,8 +30,8 @@ function ProblemsPage() {
   return (
     <>
       <div className="flex flex-col w-full h-full">
-        <div className="flex h-[10%] justify-center shadow-md">
-          <label className="font-bold text-3xl mt-6 mb-4">KU Problems</label>
+        <div className="flex h-[15%] justify-center shadow-md">
+          <label className="font-bold text-3xl mt-20 mb-4">KU Problems</label>
         </div>
         {/*  */}
         <div className="flex h-[10%] flex-row w-full ">
@@ -66,7 +66,7 @@ function ProblemsPage() {
             </ul>
           </div>
         </div>
-        <div className="relative flex w-full h-[75%] overflow-y-auto mt-4 mb-24">
+        <div className="relative flex w-full h-[70%] overflow-y-auto mt-4 mb-24">
           <ul className="flex flex-col space-y-4 w-full">
             {reports.map((item, index) => (
               <li key={index} className="flex w-full justify-center">
@@ -91,7 +91,7 @@ function ProblemsPage() {
         } transform-gpu`}
       >
         <div className="w-full h-full">
-          <button className="absolute left-4 top-4" onClick={closeReport}>
+          <button className="absolute left-4 top-16" onClick={closeReport}>
             Back
           </button>
           {show}
