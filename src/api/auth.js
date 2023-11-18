@@ -1,4 +1,4 @@
-const apiHost = "http://192.168.50.128:5000";
+const apiHost = "http://localhost:5000";
 
 export const IsLogin = async () => {
   const token = localStorage.getItem("token");

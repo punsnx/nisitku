@@ -5,9 +5,9 @@ const cors = require("cors");
 const https = require("https");
 const fs = require("fs");
 // const newsApi = require("./api/news");
-// const host = "192.168.50.128";
+const host = "localhost";
 
-const port = 3000;
+const port = 5000;
 const secretKey = "secretKey";
 const users = [
   {
@@ -113,4 +113,6 @@ app.post("/api/getTokenData/:token", (req, res) => {
 // httpsServer.listen(port, () => {
 //   console.log(`Server is running on https://localhost:${port}`);
 // });
-app.listen(port, () => console.log(`Application is running on port ${port}`));
+app.listen(port, host, () =>
+  console.log(`Application is running on port ${port}`)
+);
