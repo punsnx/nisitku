@@ -35,7 +35,7 @@ app.get("/token", (req, res) => {
     role: "admin",
   };
   // sign ด้วย default HMAC SHA256
-  const token = jwt.sign(payload, secretKey, { expiresIn: "24h" });
+  const token = jwt.sign(payload, secretKey, { expiresIn: "1h" });
   res.json({
     token: token,
   });
@@ -78,7 +78,7 @@ app.post("/api/login/:user/:pass", (req, res) => {
       role: user.role,
       email: user.email,
     };
-    const token = jwt.sign(payload, secretKey, { expiresIn: "10s" });
+    const token = jwt.sign(payload, secretKey, { expiresIn: "24h" });
     res.json({
       status: "success",
       token: token,
