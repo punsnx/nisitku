@@ -4,7 +4,7 @@ const jwt = require("jsonwebtoken");
 const cors = require("cors");
 const https = require("https");
 const fs = require("fs");
-// const newsApi = require("./api/news");
+const scrabIGAPI = require("./api/scrabIG");
 const host = "localhost";
 
 const port = 5000;
@@ -16,7 +16,8 @@ const users = [
     password: "1234",
     fname: "Sirisuk",
     lname: "Tharntham",
-    profileImg: "noImg",
+    profileImg:
+      "https://cdn.discordapp.com/attachments/1083040320033411134/1175460635551744180/OK_PERFECT_SKIN_BG_GREY_TIGHT_500x631.jpg",
     nisitid: "6610402230",
     year: "1",
     role: "Nisit",
@@ -78,7 +79,8 @@ app.post("/api/login/:user/:pass", (req, res) => {
       role: user.role,
       email: user.email,
     };
-    const token = jwt.sign(payload, secretKey, { expiresIn: "24h" });
+    // , { expiresIn: "24h" }
+    const token = jwt.sign(payload, secretKey);
     res.json({
       status: "success",
       token: token,
@@ -104,15 +106,15 @@ app.post("/api/getTokenData/:token", (req, res) => {
     });
   }
 });
-// app.get("/getNews", async (req, res) => {
-//   const news = await newsApi.getNews(2);
+app.get("/getIG/:ig_name/:n", async (req, res) => {
+  const ig = await scrabIGAPI.getIG(req.params.ig_name, req.params.n);
 
-//   res.json(news);
-// });
-// const httpsServer = https.createServer(app);
-// httpsServer.listen(port, () => {
-//   console.log(`Server is running on https://localhost:${port}`);
-// });
+  res.json(ig);
+});
+const httpsServer = https.createServer(app);
+httpsServer.listen(port, () => {
+  console.log(`Server is running on https://localhost:${port}`);
+});
 app.listen(port, host, () =>
   console.log(`Application is running on port ${port}`)
 );

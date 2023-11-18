@@ -1,8 +1,8 @@
 const sharp = require("sharp");
-const getNews = async (n) => {
+const getIG = async (ig_name, n) => {
   // Use Promise.all to wait for all image conversions to complete
   const data = await fetch(
-    `https://apt-terrapin-willing.ngrok-free.app/get-post?ig=kasetsart_ku&n=${n}`
+    `https://apt-terrapin-willing.ngrok-free.app/get-post?ig=${ig_name}&n=${n}`
   ).then((res) => res.json());
 
   // Use Promise.all to wait for all image conversions to complete
@@ -11,7 +11,7 @@ const getNews = async (n) => {
       i.images = await Promise.all(
         i.images.map(async (url) => {
           const pngBuffer = await fetchAndConvertToPNG(url);
-          return pngBuffer;
+          return `data:image/png;base64,${pngBuffer.toString("base64")}`;
         })
       );
     })
@@ -19,7 +19,7 @@ const getNews = async (n) => {
   console.log(data);
   return data;
 };
-getNews(2);
+
 async function fetchAndConvertToPNG(url) {
   try {
     // Fetch the image
@@ -45,4 +45,4 @@ async function fetchAndConvertToPNG(url) {
   }
 }
 
-module.exports = { getNews };
+module.exports = { getIG };

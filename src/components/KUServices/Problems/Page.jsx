@@ -38,10 +38,20 @@ function ProblemsPage() {
           <div className="flex w-[50%] justify-center items-center">
             <button
               className="w-[80%] h-10 rounded-xl bg-[#46E856] font-bold text-xl"
-              onClick={() => openReport(<ReportPage />)}
+              onClick={() =>
+                openReport(
+                  <ReportPage
+                    studentId={6610401993}
+                    onSummitCompleted={() => {
+                      console.log("Summited");
+                    }}
+                  />
+                )
+              }
             >
               + รายงานปัญหา
-            </button>
+            </button>{" "}
+            <div></div>
           </div>
           <div className="flex flex-row w-[50%] justify-end items-center ">
             <label className="text-xl font-semibold mr-2">สถานะ :</label>

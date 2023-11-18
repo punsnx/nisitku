@@ -1,21 +1,8 @@
-import { LogoutProcess, getTokenData } from "../api/auth";
+import { LogoutProcess } from "../api/auth";
 import LoginPage from "./login";
-import { useState, useEffect } from "react";
 
-const MyProfile = () => {
-  const [user, setUser] = useState(false);
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-    const fetchData = async () => {
-      if (token) {
-        const data = await getTokenData(token);
-        if (data) {
-          setUser(data);
-        }
-      }
-    };
-    fetchData();
-  }, []);
+const MyProfile = (user) => {
+  user = user.user;
   const HandleLogout = () => {
     if (LogoutProcess()) {
       window.location.reload();
@@ -32,9 +19,9 @@ const MyProfile = () => {
             <div className="flex flex-col w-[90%] h-[60%] mt-10 rounded-3xl items-center bg-white">
               <div className="flex w-full justify-center">
                 <img
-                  src="https://www.w3schools.com/howto/img_avatar.png"
-                  alt="Avatar"
-                  className="rounded-full w-32 h-32 mt-10"
+                  src={user.profileImg}
+                  alt="Circular Image"
+                  className="w-32 h-32 object-cover object-center rounded-full mt-10"
                 />
               </div>
               {/*  */}

@@ -7,7 +7,7 @@ import BotIcon from "../../assets/home_icon_bot.svg";
 import HomeIMG from "../../assets/home_img.svg";
 import KU80Logo from "../../assets/KU80_LOGO.png";
 
-const TopComponent = () => {
+const TopComponent = (user) => {
   return (
     <div className="relative mb-5">
       {/* IMG */}
@@ -25,7 +25,7 @@ const TopComponent = () => {
           >
             {/* PROFILE IMG */}
             <div className="flex flex-none w-[37%] h-[200%]">
-              <ProfileIMG />
+              <ProfileIMG user={user} />
             </div>
             {/* SUPER BUTTTON */}
             <div className="grow h-[200%] flex-row text-xs">
@@ -46,15 +46,16 @@ const TopIMG = () => {
   return <img className="top-0 left-0 right-0 w-full " src={HomeIMG} />;
 };
 
-const ProfileIMG = () => {
+const ProfileIMG = (user) => {
   return (
     <div className="relative left-[15%] w-28 h-28 rounded-full overflow-hidden border-4 border-green-500">
       <div className="w-full h-full rounded-full overflow-hidden border-2 border-white relative ">
         <img
-          src={HomeIMG}
+          src={user.user.user.profileImg}
           alt="Circular Image"
           className="w-full h-full object-cover object-center rounded-full"
         />
+        {console.log("profile", user)}
       </div>
     </div>
   );

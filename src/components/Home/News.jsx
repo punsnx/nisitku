@@ -1,17 +1,18 @@
 import { useEffect, useState } from "react";
-import { getNews } from "../../api/news";
+import { getIG } from "../../api/igAPI";
+import PopShow from "./popShow";
 
 const MainNews = () => {
-  const [news, setNews] = useState([]);
+  const [news, setNews] = useState(false);
   useEffect(
     () => {
-      // const fetchData = async () => {
-      //   const result = await getNews(5);
-      //   console.log(result);
-      //   setNews(result);
-      // };
+      const fetchData = async () => {
+        const result = await getIG("kasetsart_ku", 5);
+        console.log(result);
+        setNews(result);
+      };
 
-      // fetchData();
+      fetchData();
 
       // Code to run after the component renders
       // This function will run on component mount and whenever there is a change in dependencies.
@@ -26,9 +27,31 @@ const MainNews = () => {
       /* dependency array */
     ]
   );
-  const items = Array.from({ length: 5 }, (_, index) => `Item ${index + 1}`);
+  const [highlight, setHighlight] = useState(false);
+  const [isPopOpen, setIsPopOpen] = useState(false);
+  const [show, setShow] = useState(false);
+  const openPopShow = (item) => {
+    setShow(item);
+    setIsPopOpen(true);
+  };
+  const closePopShow = () => {
+    setIsPopOpen(false);
+  };
+
+  const items = ["All", "Academic", "Announcement", "Research"];
+  const imgItems = Array.from(
+    { length: 5 },
+    (_, index) =>
+      `https://cdn.discordapp.com/attachments/1083040320033411134/1175485500182757386/imgLoading.gif.gif`
+  );
   return (
     <>
+      <PopShow
+        isOpen={isPopOpen}
+        onClose={closePopShow}
+        data={show}
+        title={"News"}
+      />
       <div className="flex flex-row h-[29px] w-full mb-[2%] bg-white">
         <div className="flex text-center w-[25%]  bg-white">
           <div className="w-[10px] ml-[20%] bg-[#3EB265]"></div>
@@ -44,7 +67,7 @@ const MainNews = () => {
             <ul className="absolute flex space-x-2">
               {items.map((item, index) => (
                 <li key={index}>
-                  <button className="whitespace-nowrap px-3 bg-black bg-opacity-[15%] rounded text-sm text-black">
+                  <button className="whitespace-nowrap px-3 bg-black bg-opacity-[15%] rounded-xl text-sm text-black">
                     {item}
                   </button>
                 </li>
@@ -53,32 +76,41 @@ const MainNews = () => {
           </div>
         </div>
       </div>
-      <div className="relative overflow-x-auto w-[96%] h-[82%] left-[4%]  ">
-        <ul className="absolute flex space-x-4 ">
-          {items.map((item, index) => (
-            <li
-              key={index}
-              className="p-12 bg-white rounded-3xl border border-black"
-            >
-              {item}
-            </li>
-          ))}
-        </ul>
-      </div>
-      {/* <ul>
+      <div className="absolute overflow-x-auto w-[96%] left-[4%]">
         {news ? (
-          news.map((item, index) => (
-            <li
-              key={index}
-              className="p-12 bg-white rounded-3xl border border-black"
-            >
-              <img src={item.images[0]} alt="" />
-            </li>
-          ))
+          <ul className="flex space-x-4">
+            {news.map((item, index) => (
+              <li key={index} className="flex-shrink-0 bg-white rounded-3xl ">
+                <button onClick={() => openPopShow(item)}>
+                  <div className="flex w-full h-8 bg-black rounded-tl-3xl rounded-tr-3xl justify-center items-center">
+                    <label className="text-white">{item.date}</label>
+                  </div>
+                  <img
+                    src={item.images[0]}
+                    alt={`news-${index}`}
+                    className="w-36 h-36 object-cover object-center  rounded-bl-3xl rounded-br-3xl"
+                  />
+                </button>
+              </li>
+            ))}
+          </ul>
         ) : (
-          <></>
+          <ul className="flex space-x-4">
+            {imgItems.map((item, index) => (
+              <li
+                key={index}
+                className="flex-shrink-0 bg-white rounded-3xl border border-black"
+              >
+                <img
+                  src={item}
+                  alt={`news-${index}`}
+                  className="w-36 h-44 object-cover object-center rounded-3xl"
+                />
+              </li>
+            ))}
+          </ul>
         )}
-      </ul> */}
+      </div>
     </>
   );
 };

@@ -5,13 +5,13 @@ import HighlightSection from "../components/Home/Highlight";
 import FavroiteSection from "../components/Home/Favorite";
 import StatusSection from "../components/Home/Status";
 
-const home = () => {
-  console.log("Home");
+const Home = (user) => {
+  user = user.user;
   return (
     <>
-      <div className="flex-row mb-[100px]">
+      <div className="flex-row mb-[120px] space-y-2">
         {/* HOME BG IMAGE */}
-        <TopBG />
+        <TopBG user={user} />
         {/* STATUS */}
         <div className="w-full h-8">
           <StatusSection />
@@ -22,7 +22,7 @@ const home = () => {
         <div className="w-full h-16 ">
           <FavroiteSection />
         </div>
-        <div className="w-full h-48">
+        <div className="w-full h-56">
           <NewsSection />
         </div>
         <div className="w-full h-[270px] ">
@@ -32,4 +32,4 @@ const home = () => {
     </>
   );
 };
-export default home;
+export default Home;

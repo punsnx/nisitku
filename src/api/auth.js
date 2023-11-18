@@ -9,7 +9,7 @@ export const IsLogin = async () => {
   }
   const verifyToken = await getVerifyToken(token);
   if (verifyToken) {
-    console.log(token);
+    // console.log(token);
     return true;
   }
   return false;
@@ -20,12 +20,12 @@ export const getVerifyToken = async (token) => {
   })
     .then((res) => res.json())
     .then((data) => {
-      console.log(data);
+      // console.log(data);
       if (data.status === true) {
-        console.log("verify Token Success", data);
+        // console.log("verify Token Success", data);
         return true;
       } else {
-        console.log("verify Token Fail", data);
+        // console.log("verify Token Fail", data);
         localStorage.removeItem("token");
         return false;
       }
