@@ -1,13 +1,37 @@
 const apiHost = "http://192.168.50.128:5000";
-export const IsLogin = () => {
+
+export const IsLogin = async () => {
   const token = localStorage.getItem("token");
 
   if (!token) {
-    console.log("no token");
+    console.log("no token", localStorage);
     return false;
   }
-  console.log(token);
-  return true;
+  const verifyToken = await getVerifyToken(token);
+  if (verifyToken) {
+    console.log(token);
+    return true;
+  }
+  return false;
+};
+export const getVerifyToken = async (token) => {
+  const response = await fetch(`${apiHost}/api/verifyToken/${token}`, {
+    method: "POST",
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data);
+      if (data.status === true) {
+        console.log("verify Token Success", data);
+        return true;
+      } else {
+        console.log("verify Token Fail", data);
+        localStorage.removeItem("token");
+        return false;
+      }
+    })
+    .catch((err) => console.log(err));
+  return response;
 };
 export const LoginProcess = (user, pass) => {
   console.log("Run LoginProcess", user, pass);

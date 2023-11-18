@@ -2,9 +2,12 @@ const express = require("express");
 const app = express();
 const jwt = require("jsonwebtoken");
 const cors = require("cors");
+const https = require("https");
+const fs = require("fs");
 // const newsApi = require("./api/news");
-const host = "192.168.50.128";
-const port = 5000;
+// const host = "192.168.50.128";
+
+const port = 3000;
 const secretKey = "secretKey";
 const users = [
   {
@@ -21,6 +24,7 @@ const users = [
   },
 ];
 // Enable CORS for all routes
+app.set("trust proxy", 1);
 app.use(cors());
 app.get("/", (req, res) => res.json({ message: "Hello JWT" }));
 
@@ -31,24 +35,26 @@ app.get("/token", (req, res) => {
     role: "admin",
   };
   // sign ด้วย default HMAC SHA256
-  const token = jwt.sign(payload, secretKey, { expiresIn: "1h" });
+  const token = jwt.sign(payload, secretKey, { expiresIn: "24h" });
   res.json({
     token: token,
   });
 });
 
-app.get("/protected", (req, res) => {
-  const token = req.body.auth_token;
+app.post("/api/verifyToken/:token", (req, res) => {
+  const token = req.params.token;
 
   try {
     const decoded = jwt.verify(token, secretKey);
 
     res.json({
-      message: "Hello! You are authorized",
+      status: true,
+      message: "Authorized PASS",
       decoded,
     });
   } catch (error) {
     res.status(401).json({
+      status: false,
       message: "Unauthorized",
       error: error.message,
     });
@@ -72,7 +78,7 @@ app.post("/api/login/:user/:pass", (req, res) => {
       role: user.role,
       email: user.email,
     };
-    const token = jwt.sign(payload, secretKey, { expiresIn: "1h" });
+    const token = jwt.sign(payload, secretKey, { expiresIn: "10s" });
     res.json({
       status: "success",
       token: token,
@@ -103,7 +109,8 @@ app.post("/api/getTokenData/:token", (req, res) => {
 
 //   res.json(news);
 // });
-
-app.listen(port, host, () =>
-  console.log(`Application is running on port http://${host}:${port}`)
-);
+// const httpsServer = https.createServer(app);
+// httpsServer.listen(port, () => {
+//   console.log(`Server is running on https://localhost:${port}`);
+// });
+app.listen(port, () => console.log(`Application is running on port ${port}`));

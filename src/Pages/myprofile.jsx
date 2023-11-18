@@ -19,7 +19,6 @@ const MyProfile = () => {
   const HandleLogout = () => {
     if (LogoutProcess()) {
       window.location.reload();
-      return <LoginPage />;
     }
   };
   return (
@@ -106,7 +105,7 @@ const MyProfile = () => {
             </div>
           </div>
         ) : (
-          <label>Login Required</label>
+          <label onClick={HandleLogout}>Login Required</label>
         )}
       </div>
     </>
