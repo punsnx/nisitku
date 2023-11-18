@@ -10,13 +10,13 @@ const PopShow = ({ isOpen, onClose, data, title }) => {
         {console.log(data)}
         <div className="flex relative w-full h-full">
           <div>
-            <button className="absolute top-16 left-4" onClick={onClose}>
+            <button className="absolute top-12 left-4" onClick={onClose}>
               Close
             </button>
           </div>
           <div className="flex flex-col w-full space-y-4">
             <div className="flex w-full justify-center">
-              <label className="mt-20 font-bold text-3xl">{title}</label>
+              <label className="mt-14 font-bold text-3xl">{title}</label>
             </div>
             <div className="flex overflow-x-auto w-full">
               <ul className="flex space-x-4">
