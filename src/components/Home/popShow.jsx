@@ -7,7 +7,7 @@ const PopShow = ({ isOpen, onClose, data, title }) => {
         } transform-gpu`}
         style={{ zIndex: isOpen ? 998 : -1 }}
       >
-        {console.log(data)}
+        {/* {console.log(data)} */}
         <div className="flex relative w-full h-full">
           <div>
             <button className="absolute top-12 left-4" onClick={onClose}>

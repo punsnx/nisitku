@@ -1,4 +1,5 @@
-const apiHost = "http://localhost:5000";
+// const apiHost = "http://localhost:5000";
+const apiHost = "https://server.punsnx.com";
 export const getIG = async (ig_name, n) => {
   // Use Promise.all to wait for all image conversions to complete
   const data = await fetch(`${apiHost}/getIG/${ig_name}/${n}`).then((res) =>

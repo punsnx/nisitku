@@ -44,7 +44,7 @@ const NavBar = () => {
               alt="Academic"
               className="h-5 w-5 mx-auto"
             />
-            Aademic
+            Academic
           </button>
 
           <button

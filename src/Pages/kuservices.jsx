@@ -40,7 +40,7 @@ const KUServices = () => {
           </div>
         </div>
         <div
-          className={`fixed bottom-0 w-full h-[100%] bg-white rounded-t-3xl shadow-top-md transform transition-transform ${
+          className={`fixed bottom-0 w-full h-[100%] bg-white transform transition-transform ${
             isOpen ? "translate-x-0" : "translate-x-full"
           } transform-gpu`}
         >

@@ -1,12 +1,33 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ListProblems from "./ListProblems";
-import ReportPage from "./Report";
+import ReportPage from "./Report/SendProblem";
 
 function ProblemsPage() {
+  const [listReports, setListReports] = useState([]);
   const [like, setLike] = useState(37);
   const [liked, setLiked] = useState(false);
   const [isOpen, setOpen] = useState(false);
   const [show, setShow] = useState(<></>);
+  useEffect(() => {
+    const fetchListReport = async () => {
+      const result = await fetch(
+        "https://apt-terrapin-willing.ngrok-free.app/problem/get-finished-problem"
+      )
+        .then((response) => response.json())
+        .then((result) => {
+          console.log("Success List Report:", result);
+          setListReports(result);
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+          // Handle error, if needed
+        })
+        .finally(() => {});
+    };
+
+    fetchListReport();
+    return () => {};
+  }, []);
   const openReport = (element) => {
     setOpen(true);
     setShow(element);
@@ -96,7 +117,7 @@ function ProblemsPage() {
       </div>
       {/*  */}
       <div
-        className={`fixed top-0 w-full h-screen bg-white rounded-t-3xl shadow-top-md transform transition-transform ${
+        className={`fixed top-0 w-full h-screen bg-white transform transition-transform ${
           isOpen ? "translate-x-0" : "translate-x-full"
         } transform-gpu`}
       >
