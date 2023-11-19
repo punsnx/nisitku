@@ -42,7 +42,7 @@ const LoginPage = () => {
     <>
       <div className="w-full h-screen bg-green-400 ">
         <div className="flex w-full h-1/5 justify-center items-center">
-          <label className="font-bold text-4xl">Authentication</label>
+          {/* <label className="font-bold text-4xl">Authentication</label> */}
         </div>
         <div className="flex w-full justify-center">
           <form
