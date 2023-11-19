@@ -32,16 +32,21 @@ const PopShow = ({ isOpen, onClose, data, title }) => {
                 )}
               </ul>
             </div>
-            <div className="flex flex-col w-full items-center">
-              <div className="w-[80%]">
-                <label className="text-xs ">{data.info}</label>
+            {isOpen ? (
+              <div className="flex flex-col w-full items-center">
+                <div className="w-[80%]">
+                  <label className="text-xs ">{data.info}</label>
+                </div>
+                <div className="flex w-full justify-center">
+                  <label className="text-xs">
+                    {data.date} {data.time}
+                  </label>
+                </div>
               </div>
-              <div className="flex w-full justify-center">
-                <label className="text-xs">
-                  {data.date} {data.time}
-                </label>
-              </div>
-            </div>
+            ) : (
+              <></>
+            )}
+
             {/*  */}
           </div>
 

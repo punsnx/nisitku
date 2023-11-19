@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { getIG } from "../../api/igAPI";
 import PopShow from "./popShow";
 
-const MainNews = () => {
+const MainNews = ({ setFixed }) => {
   const [news, setNews] = useState(false);
   useEffect(
     () => {
@@ -32,18 +32,21 @@ const MainNews = () => {
   const [show, setShow] = useState(false);
   const openPopShow = (item) => {
     setShow(item);
+    setFixed(true);
     setIsPopOpen(true);
   };
   const closePopShow = () => {
+    setFixed(false);
     setIsPopOpen(false);
   };
 
   const items = ["All", "Academic", "Announcement", "Research"];
-  const imgItems = Array.from(
-    { length: 5 },
-    (_, index) =>
-      `https://cdn.discordapp.com/attachments/1083040320033411134/1175485500182757386/imgLoading.gif.gif`
-  );
+
+  const loadingGif =
+    "https://cdn.discordapp.com/attachments/1083025504887648368/1175922327670763611/LoadingGif.gif";
+  // const loadingGif =
+  //   "https://cdn.discordapp.com/attachments/1083040320033411134/1175485500182757386/imgLoading.gif.gif";
+  const imgItems = Array.from({ length: 5 }, (_, index) => loadingGif);
   return (
     <>
       <PopShow
@@ -53,7 +56,7 @@ const MainNews = () => {
         title={"News"}
       />
       <div className="flex flex-row h-[29px] w-full mb-[2%] bg-white">
-        <div className="flex text-center w-[25%]  bg-white">
+        <div className="flex text-center w-[30%]  bg-white">
           <div className="w-[10px] ml-[20%] bg-[#3EB265]"></div>
           <p className="font-semibold text-2xl ml-2">News</p>
         </div>
@@ -99,7 +102,7 @@ const MainNews = () => {
             {imgItems.map((item, index) => (
               <li
                 key={index}
-                className="flex-shrink-0 bg-white rounded-3xl border border-black"
+                className="flex-shrink-0 bg-white rounded-3xl border-2"
               >
                 <img
                   src={item}

@@ -40,6 +40,7 @@ function AppRoute() {
     return path;
   };
   console.log("IsLogin ? ", LoggedIn);
+
   return (
     <BrowserRouter>
       <Routes>

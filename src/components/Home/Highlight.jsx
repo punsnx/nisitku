@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { getIG } from "../../api/igAPI";
 import PopShow from "./popShow";
-const MainHighlight = () => {
+
+const MainHighlight = ({ setFixed }) => {
   useEffect(
     () => {
       const fetchData = async () => {
@@ -30,17 +31,19 @@ const MainHighlight = () => {
   const [show, setShow] = useState(false);
   const openPopShow = (item) => {
     setShow(item);
+    setFixed(true);
     setIsPopOpen(true);
   };
 
   const closePopShow = () => {
+    setFixed(false);
     setIsPopOpen(false);
   };
-  const imgItems = Array.from(
-    { length: 5 },
-    (_, index) =>
-      `https://cdn.discordapp.com/attachments/1083040320033411134/1175485500182757386/imgLoading.gif.gif`
-  );
+  const loadingGif =
+    "https://cdn.discordapp.com/attachments/1083025504887648368/1175922327670763611/LoadingGif.gif";
+  // const loadingGif =
+  //   "https://cdn.discordapp.com/attachments/1083040320033411134/1175485500182757386/imgLoading.gif.gif";
+  const imgItems = Array.from({ length: 5 }, (_, index) => loadingGif);
   return (
     <>
       <PopShow
@@ -70,7 +73,7 @@ const MainHighlight = () => {
             {imgItems.map((item, index) => (
               <li
                 key={index}
-                className="flex-shrink-0 bg-white rounded-3xl border border-black"
+                className="flex-shrink-0 bg-white rounded-3xl border-2"
               >
                 <img
                   src={item}

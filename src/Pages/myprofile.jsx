@@ -16,12 +16,12 @@ const MyProfile = (user) => {
             <div className="text-center">
               <h1 className="font-bold text-3xl mt-16">My Profile</h1>
             </div>
-            <div className="flex flex-col w-[90%] h-[60%] mt-10 rounded-3xl items-center bg-white">
+            <div className="flex flex-col w-[90%] h-[60%] mt-10 rounded-3xl items-center bg-white shadow-2xl">
               <div className="flex w-full justify-center">
                 <img
                   src={user.profileImg}
                   alt="Circular Image"
-                  className="w-32 h-32 object-cover object-center rounded-full mt-10"
+                  className="w-32 h-32 object-cover object-center rounded-xl mt-10 shadow-lg"
                 />
               </div>
               {/*  */}

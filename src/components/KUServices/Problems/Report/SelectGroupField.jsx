@@ -126,7 +126,7 @@ function SelectGroupField({
           }}
           className="flex flex-col justify-center w-24 text-center bg-blue-300 focus:bg-blue-500 rounded-md"
         >
-          ไม่มั่นใจ
+          Ask AI
         </div>
       </div>
       {reason ? <div className="ml-5 text-red-500">*{reason}</div> : <></>}

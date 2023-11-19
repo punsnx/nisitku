@@ -58,7 +58,7 @@ function ProblemsPage() {
         <div className="flex h-[10%] flex-row w-full ">
           <div className="flex w-[50%] justify-center items-center">
             <button
-              className="w-[80%] h-10 rounded-xl bg-[#46E856] font-bold text-xl"
+              className="w-[80%] h-10 rounded-xl bg-[#FFBBD7] font-bold text-xl"
               onClick={() =>
                 openReport(
                   <ReportPage
@@ -103,7 +103,7 @@ function ProblemsPage() {
               <li key={index} className="flex w-full justify-center">
                 <ListProblems
                   onLike={addLike}
-                  topic={"ตะไลโง่"}
+                  topic={"ตะไลแย่"}
                   detail={"จอดนานมากคันนี้"}
                   type_problem={"ตะไล"}
                   likes={like}

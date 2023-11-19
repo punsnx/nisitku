@@ -22,7 +22,7 @@ function ProblemComponent({
 
   useEffect(() => {
     if (finished) {
-      setStatus("เสร็จสิ้น");
+      setStatus("Finished");
     } else {
       setStatus("กำลังดำเนินการ");
     }
@@ -36,7 +36,7 @@ function ProblemComponent({
         </div>
         <div
           className={`text-white text-center text-xs font-bold leading-4 ${
-            finished ? "bg-green-600" : "bg-amber-500"
+            finished ? "bg-[#84D991]" : "bg-amber-500"
           } items-stretch px-4 py-1.5 rounded-2xl w-2/5`}
         >
           {status}
