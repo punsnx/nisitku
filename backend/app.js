@@ -116,10 +116,10 @@ app.get("/getIG/:ig_name/:n", async (req, res) => {
   res.json(ig);
 });
 
-const server = https.createServer(options, app);
-server.listen(port, host, () => {
-  console.log(`Server running at https://${host}:${port}/`);
-});
-// app.listen(5080, host, () =>
-//   console.log(`Application is running on port http://${host}${5080}`)
-// );
+// const server = https.createServer(options, app);
+// server.listen(port, host, () => {
+//   console.log(`Server running at https://${host}:${port}/`);
+// });
+app.listen(port, host, () =>
+  console.log(`Application is running on port http://${host}${port}`)
+);
