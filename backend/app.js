@@ -5,7 +5,7 @@ const cors = require("cors");
 const https = require("https");
 const fs = require("fs");
 const scrabIGAPI = require("./api/scrabIG");
-const host = "192.168.50.253";
+const host = "localhost";
 const options = {
   key: fs.readFileSync("key.pem"), // Replace with your private key file
   cert: fs.readFileSync("cert.pem"), // Replace with your certificate file
@@ -118,7 +118,7 @@ app.get("/getIG/:ig_name/:n", async (req, res) => {
 
 const server = https.createServer(options, app);
 server.listen(port, host, () => {
-  console.log(`Server running at https://xxx:${port}/`);
+  console.log(`Server running at https://${host}:${port}/`);
 });
 // app.listen(5080, host, () =>
 //   console.log(`Application is running on port http://${host}${5080}`)
